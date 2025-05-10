@@ -1,0 +1,1371 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-mode="light" data-layout-width="default" data-layout-position="fixed" data-topbar-color="light" data-menu-color="light" data-sidenav-view="mobile"><head>
+    <meta charset="utf-8">
+    <title>Calendar | Konrix - Responsive Tailwind Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
+    <meta content="coderthemes" name="author">
+
+    <!-- App favicon -->
+    <!-- fullcalendar styles --><style>:root{--fc-small-font-size:.85em;--fc-page-bg-color:#fff;--fc-neutral-bg-color:hsla(0,0%,82%,.3);--fc-neutral-text-color:grey;--fc-border-color:#ddd;--fc-button-text-color:#fff;--fc-button-bg-color:#2c3e50;--fc-button-border-color:#2c3e50;--fc-button-hover-bg-color:#1e2b37;--fc-button-hover-border-color:#1a252f;--fc-button-active-bg-color:#1a252f;--fc-button-active-border-color:#151e27;--fc-event-bg-color:#3788d8;--fc-event-border-color:#3788d8;--fc-event-text-color:#fff;--fc-event-selected-overlay-color:rgba(0,0,0,.25);--fc-more-link-bg-color:#d0d0d0;--fc-more-link-text-color:inherit;--fc-event-resizer-thickness:8px;--fc-event-resizer-dot-total-width:8px;--fc-event-resizer-dot-border-width:1px;--fc-non-business-color:hsla(0,0%,84%,.3);--fc-bg-event-color:#8fdf82;--fc-bg-event-opacity:0.3;--fc-highlight-color:rgba(188,232,241,.3);--fc-today-bg-color:rgba(255,220,40,.15);--fc-now-indicator-color:red}.fc-not-allowed,.fc-not-allowed .fc-event{cursor:not-allowed}.fc{display:flex;flex-direction:column;font-size:1em}.fc,.fc *,.fc :after,.fc :before{box-sizing:border-box}.fc table{border-collapse:collapse;border-spacing:0;font-size:1em}.fc th{text-align:center}.fc td,.fc th{padding:0;vertical-align:top}.fc a[data-navlink]{cursor:pointer}.fc a[data-navlink]:hover{text-decoration:underline}.fc-direction-ltr{direction:ltr;text-align:left}.fc-direction-rtl{direction:rtl;text-align:right}.fc-theme-standard td,.fc-theme-standard th{border:1px solid var(--fc-border-color)}.fc-liquid-hack td,.fc-liquid-hack th{position:relative}@font-face{font-family:fcicons;font-style:normal;font-weight:400;src:url("data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBfAAAAC8AAAAYGNtYXAXVtKNAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5ZgYydxIAAAF4AAAFNGhlYWQUJ7cIAAAGrAAAADZoaGVhB20DzAAABuQAAAAkaG10eCIABhQAAAcIAAAALGxvY2ED4AU6AAAHNAAAABhtYXhwAA8AjAAAB0wAAAAgbmFtZXsr690AAAdsAAABhnBvc3QAAwAAAAAI9AAAACAAAwPAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpBgPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAg6Qb//f//AAAAAAAg6QD//f//AAH/4xcEAAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAWIAjQKeAskAEwAAJSc3NjQnJiIHAQYUFwEWMjc2NCcCnuLiDQ0MJAz/AA0NAQAMJAwNDcni4gwjDQwM/wANIwz/AA0NDCMNAAAAAQFiAI0CngLJABMAACUBNjQnASYiBwYUHwEHBhQXFjI3AZ4BAA0N/wAMJAwNDeLiDQ0MJAyNAQAMIw0BAAwMDSMM4uINIwwNDQAAAAIA4gC3Ax4CngATACcAACUnNzY0JyYiDwEGFB8BFjI3NjQnISc3NjQnJiIPAQYUHwEWMjc2NCcB87e3DQ0MIw3VDQ3VDSMMDQ0BK7e3DQ0MJAzVDQ3VDCQMDQ3zuLcMJAwNDdUNIwzWDAwNIwy4twwkDA0N1Q0jDNYMDA0jDAAAAgDiALcDHgKeABMAJwAAJTc2NC8BJiIHBhQfAQcGFBcWMjchNzY0LwEmIgcGFB8BBwYUFxYyNwJJ1Q0N1Q0jDA0Nt7cNDQwjDf7V1Q0N1QwkDA0Nt7cNDQwkDLfWDCMN1Q0NDCQMt7gMIw0MDNYMIw3VDQ0MJAy3uAwjDQwMAAADAFUAAAOrA1UAMwBoAHcAABMiBgcOAQcOAQcOARURFBYXHgEXHgEXHgEzITI2Nz4BNz4BNz4BNRE0JicuAScuAScuASMFITIWFx4BFx4BFx4BFREUBgcOAQcOAQcOASMhIiYnLgEnLgEnLgE1ETQ2Nz4BNz4BNz4BMxMhMjY1NCYjISIGFRQWM9UNGAwLFQkJDgUFBQUFBQ4JCRULDBgNAlYNGAwLFQkJDgUFBQUFBQ4JCRULDBgN/aoCVgQIBAQHAwMFAQIBAQIBBQMDBwQECAT9qgQIBAQHAwMFAQIBAQIBBQMDBwQECASAAVYRGRkR/qoRGRkRA1UFBAUOCQkVDAsZDf2rDRkLDBUJCA4FBQUFBQUOCQgVDAsZDQJVDRkLDBUJCQ4FBAVVAgECBQMCBwQECAX9qwQJAwQHAwMFAQICAgIBBQMDBwQDCQQCVQUIBAQHAgMFAgEC/oAZEhEZGRESGQAAAAADAFUAAAOrA1UAMwBoAIkAABMiBgcOAQcOAQcOARURFBYXHgEXHgEXHgEzITI2Nz4BNz4BNz4BNRE0JicuAScuAScuASMFITIWFx4BFx4BFx4BFREUBgcOAQcOAQcOASMhIiYnLgEnLgEnLgE1ETQ2Nz4BNz4BNz4BMxMzFRQWMzI2PQEzMjY1NCYrATU0JiMiBh0BIyIGFRQWM9UNGAwLFQkJDgUFBQUFBQ4JCRULDBgNAlYNGAwLFQkJDgUFBQUFBQ4JCRULDBgN/aoCVgQIBAQHAwMFAQIBAQIBBQMDBwQECAT9qgQIBAQHAwMFAQIBAQIBBQMDBwQECASAgBkSEhmAERkZEYAZEhIZgBEZGREDVQUEBQ4JCRUMCxkN/asNGQsMFQkIDgUFBQUFBQ4JCBUMCxkNAlUNGQsMFQkJDgUEBVUCAQIFAwIHBAQIBf2rBAkDBAcDAwUBAgICAgEFAwMHBAMJBAJVBQgEBAcCAwUCAQL+gIASGRkSgBkSERmAEhkZEoAZERIZAAABAOIAjQMeAskAIAAAExcHBhQXFjI/ARcWMjc2NC8BNzY0JyYiDwEnJiIHBhQX4uLiDQ0MJAzi4gwkDA0N4uINDQwkDOLiDCQMDQ0CjeLiDSMMDQ3h4Q0NDCMN4uIMIw0MDOLiDAwNIwwAAAABAAAAAQAAa5n0y18PPPUACwQAAAAAANivOVsAAAAA2K85WwAAAAADqwNVAAAACAACAAAAAAAAAAEAAAPA/8AAAAQAAAAAAAOrAAEAAAAAAAAAAAAAAAAAAAALBAAAAAAAAAAAAAAAAgAAAAQAAWIEAAFiBAAA4gQAAOIEAABVBAAAVQQAAOIAAAAAAAoAFAAeAEQAagCqAOoBngJkApoAAQAAAAsAigADAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA4ArgABAAAAAAABAAcAAAABAAAAAAACAAcAYAABAAAAAAADAAcANgABAAAAAAAEAAcAdQABAAAAAAAFAAsAFQABAAAAAAAGAAcASwABAAAAAAAKABoAigADAAEECQABAA4ABwADAAEECQACAA4AZwADAAEECQADAA4APQADAAEECQAEAA4AfAADAAEECQAFABYAIAADAAEECQAGAA4AUgADAAEECQAKADQApGZjaWNvbnMAZgBjAGkAYwBvAG4Ac1ZlcnNpb24gMS4wAFYAZQByAHMAaQBvAG4AIAAxAC4AMGZjaWNvbnMAZgBjAGkAYwBvAG4Ac2ZjaWNvbnMAZgBjAGkAYwBvAG4Ac1JlZ3VsYXIAUgBlAGcAdQBsAGEAcmZjaWNvbnMAZgBjAGkAYwBvAG4Ac0ZvbnQgZ2VuZXJhdGVkIGJ5IEljb01vb24uAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4ALgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=") format("truetype")}.fc-icon{speak:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;display:inline-block;font-family:fcicons!important;font-style:normal;font-variant:normal;font-weight:400;height:1em;line-height:1;text-align:center;text-transform:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;width:1em}.fc-icon-chevron-left:before{content:"\e900"}.fc-icon-chevron-right:before{content:"\e901"}.fc-icon-chevrons-left:before{content:"\e902"}.fc-icon-chevrons-right:before{content:"\e903"}.fc-icon-minus-square:before{content:"\e904"}.fc-icon-plus-square:before{content:"\e905"}.fc-icon-x:before{content:"\e906"}.fc .fc-button{border-radius:0;font-family:inherit;font-size:inherit;line-height:inherit;margin:0;overflow:visible;text-transform:none}.fc .fc-button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}.fc .fc-button{-webkit-appearance:button}.fc .fc-button:not(:disabled){cursor:pointer}.fc .fc-button::-moz-focus-inner{border-style:none;padding:0}.fc .fc-button{background-color:transparent;border:1px solid transparent;border-radius:.25em;display:inline-block;font-size:1em;font-weight:400;line-height:1.5;padding:.4em .65em;text-align:center;-webkit-user-select:none;-moz-user-select:none;user-select:none;vertical-align:middle}.fc .fc-button:hover{text-decoration:none}.fc .fc-button:focus{box-shadow:0 0 0 .2rem rgba(44,62,80,.25);outline:0}.fc .fc-button:disabled{opacity:.65}.fc .fc-button-primary{background-color:var(--fc-button-bg-color);border-color:var(--fc-button-border-color);color:var(--fc-button-text-color)}.fc .fc-button-primary:hover{background-color:var(--fc-button-hover-bg-color);border-color:var(--fc-button-hover-border-color);color:var(--fc-button-text-color)}.fc .fc-button-primary:disabled{background-color:var(--fc-button-bg-color);border-color:var(--fc-button-border-color);color:var(--fc-button-text-color)}.fc .fc-button-primary:focus{box-shadow:0 0 0 .2rem rgba(76,91,106,.5)}.fc .fc-button-primary:not(:disabled).fc-button-active,.fc .fc-button-primary:not(:disabled):active{background-color:var(--fc-button-active-bg-color);border-color:var(--fc-button-active-border-color);color:var(--fc-button-text-color)}.fc .fc-button-primary:not(:disabled).fc-button-active:focus,.fc .fc-button-primary:not(:disabled):active:focus{box-shadow:0 0 0 .2rem rgba(76,91,106,.5)}.fc .fc-button .fc-icon{font-size:1.5em;vertical-align:middle}.fc .fc-button-group{display:inline-flex;position:relative;vertical-align:middle}.fc .fc-button-group>.fc-button{flex:1 1 auto;position:relative}.fc .fc-button-group>.fc-button.fc-button-active,.fc .fc-button-group>.fc-button:active,.fc .fc-button-group>.fc-button:focus,.fc .fc-button-group>.fc-button:hover{z-index:1}.fc-direction-ltr .fc-button-group>.fc-button:not(:first-child){border-bottom-left-radius:0;border-top-left-radius:0;margin-left:-1px}.fc-direction-ltr .fc-button-group>.fc-button:not(:last-child){border-bottom-right-radius:0;border-top-right-radius:0}.fc-direction-rtl .fc-button-group>.fc-button:not(:first-child){border-bottom-right-radius:0;border-top-right-radius:0;margin-right:-1px}.fc-direction-rtl .fc-button-group>.fc-button:not(:last-child){border-bottom-left-radius:0;border-top-left-radius:0}.fc .fc-toolbar{align-items:center;display:flex;justify-content:space-between}.fc .fc-toolbar.fc-header-toolbar{margin-bottom:1.5em}.fc .fc-toolbar.fc-footer-toolbar{margin-top:1.5em}.fc .fc-toolbar-title{font-size:1.75em;margin:0}.fc-direction-ltr .fc-toolbar>*>:not(:first-child){margin-left:.75em}.fc-direction-rtl .fc-toolbar>*>:not(:first-child){margin-right:.75em}.fc-direction-rtl .fc-toolbar-ltr{flex-direction:row-reverse}.fc .fc-scroller{-webkit-overflow-scrolling:touch;position:relative}.fc .fc-scroller-liquid{height:100%}.fc .fc-scroller-liquid-absolute{bottom:0;left:0;position:absolute;right:0;top:0}.fc .fc-scroller-harness{direction:ltr;overflow:hidden;position:relative}.fc .fc-scroller-harness-liquid{height:100%}.fc-direction-rtl .fc-scroller-harness>.fc-scroller{direction:rtl}.fc-theme-standard .fc-scrollgrid{border:1px solid var(--fc-border-color)}.fc .fc-scrollgrid,.fc .fc-scrollgrid table{table-layout:fixed;width:100%}.fc .fc-scrollgrid table{border-left-style:hidden;border-right-style:hidden;border-top-style:hidden}.fc .fc-scrollgrid{border-bottom-width:0;border-collapse:separate;border-right-width:0}.fc .fc-scrollgrid-liquid{height:100%}.fc .fc-scrollgrid-section,.fc .fc-scrollgrid-section table,.fc .fc-scrollgrid-section>td{height:1px}.fc .fc-scrollgrid-section-liquid>td{height:100%}.fc .fc-scrollgrid-section>*{border-left-width:0;border-top-width:0}.fc .fc-scrollgrid-section-footer>*,.fc .fc-scrollgrid-section-header>*{border-bottom-width:0}.fc .fc-scrollgrid-section-body table,.fc .fc-scrollgrid-section-footer table{border-bottom-style:hidden}.fc .fc-scrollgrid-section-sticky>*{background:var(--fc-page-bg-color);position:sticky;z-index:3}.fc .fc-scrollgrid-section-header.fc-scrollgrid-section-sticky>*{top:0}.fc .fc-scrollgrid-section-footer.fc-scrollgrid-section-sticky>*{bottom:0}.fc .fc-scrollgrid-sticky-shim{height:1px;margin-bottom:-1px}.fc-sticky{position:sticky}.fc .fc-view-harness{flex-grow:1;position:relative}.fc .fc-view-harness-active>.fc-view{bottom:0;left:0;position:absolute;right:0;top:0}.fc .fc-col-header-cell-cushion{display:inline-block;padding:2px 4px}.fc .fc-bg-event,.fc .fc-highlight,.fc .fc-non-business{bottom:0;left:0;position:absolute;right:0;top:0}.fc .fc-non-business{background:var(--fc-non-business-color)}.fc .fc-bg-event{background:var(--fc-bg-event-color);opacity:var(--fc-bg-event-opacity)}.fc .fc-bg-event .fc-event-title{font-size:var(--fc-small-font-size);font-style:italic;margin:.5em}.fc .fc-highlight{background:var(--fc-highlight-color)}.fc .fc-cell-shaded,.fc .fc-day-disabled{background:var(--fc-neutral-bg-color)}a.fc-event,a.fc-event:hover{text-decoration:none}.fc-event.fc-event-draggable,.fc-event[href]{cursor:pointer}.fc-event .fc-event-main{position:relative;z-index:2}.fc-event-dragging:not(.fc-event-selected){opacity:.75}.fc-event-dragging.fc-event-selected{box-shadow:0 2px 7px rgba(0,0,0,.3)}.fc-event .fc-event-resizer{display:none;position:absolute;z-index:4}.fc-event-selected .fc-event-resizer,.fc-event:hover .fc-event-resizer{display:block}.fc-event-selected .fc-event-resizer{background:var(--fc-page-bg-color);border-color:inherit;border-radius:calc(var(--fc-event-resizer-dot-total-width)/2);border-style:solid;border-width:var(--fc-event-resizer-dot-border-width);height:var(--fc-event-resizer-dot-total-width);width:var(--fc-event-resizer-dot-total-width)}.fc-event-selected .fc-event-resizer:before{bottom:-20px;content:"";left:-20px;position:absolute;right:-20px;top:-20px}.fc-event-selected,.fc-event:focus{box-shadow:0 2px 5px rgba(0,0,0,.2)}.fc-event-selected:before,.fc-event:focus:before{bottom:0;content:"";left:0;position:absolute;right:0;top:0;z-index:3}.fc-event-selected:after,.fc-event:focus:after{background:var(--fc-event-selected-overlay-color);bottom:-1px;content:"";left:-1px;position:absolute;right:-1px;top:-1px;z-index:1}.fc-h-event{background-color:var(--fc-event-bg-color);border:1px solid var(--fc-event-border-color);display:block}.fc-h-event .fc-event-main{color:var(--fc-event-text-color)}.fc-h-event .fc-event-main-frame{display:flex}.fc-h-event .fc-event-time{max-width:100%;overflow:hidden}.fc-h-event .fc-event-title-container{flex-grow:1;flex-shrink:1;min-width:0}.fc-h-event .fc-event-title{display:inline-block;left:0;max-width:100%;overflow:hidden;right:0;vertical-align:top}.fc-h-event.fc-event-selected:before{bottom:-10px;top:-10px}.fc-direction-ltr .fc-daygrid-block-event:not(.fc-event-start),.fc-direction-rtl .fc-daygrid-block-event:not(.fc-event-end){border-bottom-left-radius:0;border-left-width:0;border-top-left-radius:0}.fc-direction-ltr .fc-daygrid-block-event:not(.fc-event-end),.fc-direction-rtl .fc-daygrid-block-event:not(.fc-event-start){border-bottom-right-radius:0;border-right-width:0;border-top-right-radius:0}.fc-h-event:not(.fc-event-selected) .fc-event-resizer{bottom:0;top:0;width:var(--fc-event-resizer-thickness)}.fc-direction-ltr .fc-h-event:not(.fc-event-selected) .fc-event-resizer-start,.fc-direction-rtl .fc-h-event:not(.fc-event-selected) .fc-event-resizer-end{cursor:w-resize;left:calc(var(--fc-event-resizer-thickness)*-.5)}.fc-direction-ltr .fc-h-event:not(.fc-event-selected) .fc-event-resizer-end,.fc-direction-rtl .fc-h-event:not(.fc-event-selected) .fc-event-resizer-start{cursor:e-resize;right:calc(var(--fc-event-resizer-thickness)*-.5)}.fc-h-event.fc-event-selected .fc-event-resizer{margin-top:calc(var(--fc-event-resizer-dot-total-width)*-.5);top:50%}.fc-direction-ltr .fc-h-event.fc-event-selected .fc-event-resizer-start,.fc-direction-rtl .fc-h-event.fc-event-selected .fc-event-resizer-end{left:calc(var(--fc-event-resizer-dot-total-width)*-.5)}.fc-direction-ltr .fc-h-event.fc-event-selected .fc-event-resizer-end,.fc-direction-rtl .fc-h-event.fc-event-selected .fc-event-resizer-start{right:calc(var(--fc-event-resizer-dot-total-width)*-.5)}.fc .fc-popover{box-shadow:0 2px 6px rgba(0,0,0,.15);position:absolute;z-index:9999}.fc .fc-popover-header{align-items:center;display:flex;flex-direction:row;justify-content:space-between;padding:3px 4px}.fc .fc-popover-title{margin:0 2px}.fc .fc-popover-close{cursor:pointer;font-size:1.1em;opacity:.65}.fc-theme-standard .fc-popover{background:var(--fc-page-bg-color);border:1px solid var(--fc-border-color)}.fc-theme-standard .fc-popover-header{background:var(--fc-neutral-bg-color)}</style><style>:root{--fc-daygrid-event-dot-width:8px}.fc-daygrid-day-events:after,.fc-daygrid-day-events:before,.fc-daygrid-day-frame:after,.fc-daygrid-day-frame:before,.fc-daygrid-event-harness:after,.fc-daygrid-event-harness:before{clear:both;content:"";display:table}.fc .fc-daygrid-body{position:relative;z-index:1}.fc .fc-daygrid-day.fc-day-today{background-color:var(--fc-today-bg-color)}.fc .fc-daygrid-day-frame{min-height:100%;position:relative}.fc .fc-daygrid-day-top{display:flex;flex-direction:row-reverse}.fc .fc-day-other .fc-daygrid-day-top{opacity:.3}.fc .fc-daygrid-day-number{padding:4px;position:relative;z-index:4}.fc .fc-daygrid-month-start{font-size:1.1em;font-weight:700}.fc .fc-daygrid-day-events{margin-top:1px}.fc .fc-daygrid-body-balanced .fc-daygrid-day-events{left:0;position:absolute;right:0}.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{min-height:2em;position:relative}.fc .fc-daygrid-body-natural .fc-daygrid-day-events{margin-bottom:1em}.fc .fc-daygrid-event-harness{position:relative}.fc .fc-daygrid-event-harness-abs{left:0;position:absolute;right:0;top:0}.fc .fc-daygrid-bg-harness{bottom:0;position:absolute;top:0}.fc .fc-daygrid-day-bg .fc-non-business{z-index:1}.fc .fc-daygrid-day-bg .fc-bg-event{z-index:2}.fc .fc-daygrid-day-bg .fc-highlight{z-index:3}.fc .fc-daygrid-event{margin-top:1px;z-index:6}.fc .fc-daygrid-event.fc-event-mirror{z-index:7}.fc .fc-daygrid-day-bottom{font-size:.85em;margin:0 2px}.fc .fc-daygrid-day-bottom:after,.fc .fc-daygrid-day-bottom:before{clear:both;content:"";display:table}.fc .fc-daygrid-more-link{border-radius:3px;cursor:pointer;line-height:1;margin-top:1px;max-width:100%;overflow:hidden;padding:2px;position:relative;white-space:nowrap;z-index:4}.fc .fc-daygrid-more-link:hover{background-color:rgba(0,0,0,.1)}.fc .fc-daygrid-week-number{background-color:var(--fc-neutral-bg-color);color:var(--fc-neutral-text-color);min-width:1.5em;padding:2px;position:absolute;text-align:center;top:0;z-index:5}.fc .fc-more-popover .fc-popover-body{min-width:220px;padding:10px}.fc-direction-ltr .fc-daygrid-event.fc-event-start,.fc-direction-rtl .fc-daygrid-event.fc-event-end{margin-left:2px}.fc-direction-ltr .fc-daygrid-event.fc-event-end,.fc-direction-rtl .fc-daygrid-event.fc-event-start{margin-right:2px}.fc-direction-ltr .fc-daygrid-more-link{float:left}.fc-direction-ltr .fc-daygrid-week-number{border-radius:0 0 3px 0;left:0}.fc-direction-rtl .fc-daygrid-more-link{float:right}.fc-direction-rtl .fc-daygrid-week-number{border-radius:0 0 0 3px;right:0}.fc-liquid-hack .fc-daygrid-day-frame{position:static}.fc-daygrid-event{border-radius:3px;font-size:var(--fc-small-font-size);position:relative;white-space:nowrap}.fc-daygrid-block-event .fc-event-time{font-weight:700}.fc-daygrid-block-event .fc-event-time,.fc-daygrid-block-event .fc-event-title{padding:1px}.fc-daygrid-dot-event{align-items:center;display:flex;padding:2px 0}.fc-daygrid-dot-event .fc-event-title{flex-grow:1;flex-shrink:1;font-weight:700;min-width:0;overflow:hidden}.fc-daygrid-dot-event.fc-event-mirror,.fc-daygrid-dot-event:hover{background:rgba(0,0,0,.1)}.fc-daygrid-dot-event.fc-event-selected:before{bottom:-10px;top:-10px}.fc-daygrid-event-dot{border:calc(var(--fc-daygrid-event-dot-width)/2) solid var(--fc-event-border-color);border-radius:calc(var(--fc-daygrid-event-dot-width)/2);box-sizing:content-box;height:0;margin:0 4px;width:0}.fc-direction-ltr .fc-daygrid-event .fc-event-time{margin-right:3px}.fc-direction-rtl .fc-daygrid-event .fc-event-time{margin-left:3px}</style><style>.fc-v-event{background-color:var(--fc-event-bg-color);border:1px solid var(--fc-event-border-color);display:block}.fc-v-event .fc-event-main{color:var(--fc-event-text-color);height:100%}.fc-v-event .fc-event-main-frame{display:flex;flex-direction:column;height:100%}.fc-v-event .fc-event-time{flex-grow:0;flex-shrink:0;max-height:100%;overflow:hidden}.fc-v-event .fc-event-title-container{flex-grow:1;flex-shrink:1;min-height:0}.fc-v-event .fc-event-title{bottom:0;max-height:100%;overflow:hidden;top:0}.fc-v-event:not(.fc-event-start){border-top-left-radius:0;border-top-right-radius:0;border-top-width:0}.fc-v-event:not(.fc-event-end){border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-width:0}.fc-v-event.fc-event-selected:before{left:-10px;right:-10px}.fc-v-event .fc-event-resizer-start{cursor:n-resize}.fc-v-event .fc-event-resizer-end{cursor:s-resize}.fc-v-event:not(.fc-event-selected) .fc-event-resizer{height:var(--fc-event-resizer-thickness);left:0;right:0}.fc-v-event:not(.fc-event-selected) .fc-event-resizer-start{top:calc(var(--fc-event-resizer-thickness)/-2)}.fc-v-event:not(.fc-event-selected) .fc-event-resizer-end{bottom:calc(var(--fc-event-resizer-thickness)/-2)}.fc-v-event.fc-event-selected .fc-event-resizer{left:50%;margin-left:calc(var(--fc-event-resizer-dot-total-width)/-2)}.fc-v-event.fc-event-selected .fc-event-resizer-start{top:calc(var(--fc-event-resizer-dot-total-width)/-2)}.fc-v-event.fc-event-selected .fc-event-resizer-end{bottom:calc(var(--fc-event-resizer-dot-total-width)/-2)}.fc .fc-timegrid .fc-daygrid-body{z-index:2}.fc .fc-timegrid-divider{padding:0 0 2px}.fc .fc-timegrid-body{min-height:100%;position:relative;z-index:1}.fc .fc-timegrid-axis-chunk{position:relative}.fc .fc-timegrid-axis-chunk>table,.fc .fc-timegrid-slots{position:relative;z-index:1}.fc .fc-timegrid-slot{border-bottom:0;height:1.5em}.fc .fc-timegrid-slot:empty:before{content:"\00a0"}.fc .fc-timegrid-slot-minor{border-top-style:dotted}.fc .fc-timegrid-slot-label-cushion{display:inline-block;white-space:nowrap}.fc .fc-timegrid-slot-label{vertical-align:middle}.fc .fc-timegrid-axis-cushion,.fc .fc-timegrid-slot-label-cushion{padding:0 4px}.fc .fc-timegrid-axis-frame-liquid{height:100%}.fc .fc-timegrid-axis-frame{align-items:center;display:flex;justify-content:flex-end;overflow:hidden}.fc .fc-timegrid-axis-cushion{flex-shrink:0;max-width:60px}.fc-direction-ltr .fc-timegrid-slot-label-frame{text-align:right}.fc-direction-rtl .fc-timegrid-slot-label-frame{text-align:left}.fc-liquid-hack .fc-timegrid-axis-frame-liquid{bottom:0;height:auto;left:0;position:absolute;right:0;top:0}.fc .fc-timegrid-col.fc-day-today{background-color:var(--fc-today-bg-color)}.fc .fc-timegrid-col-frame{min-height:100%;position:relative}.fc-media-screen.fc-liquid-hack .fc-timegrid-col-frame{bottom:0;height:auto;left:0;position:absolute;right:0;top:0}.fc-media-screen .fc-timegrid-cols{bottom:0;left:0;position:absolute;right:0;top:0}.fc-media-screen .fc-timegrid-cols>table{height:100%}.fc-media-screen .fc-timegrid-col-bg,.fc-media-screen .fc-timegrid-col-events,.fc-media-screen .fc-timegrid-now-indicator-container{left:0;position:absolute;right:0;top:0}.fc .fc-timegrid-col-bg{z-index:2}.fc .fc-timegrid-col-bg .fc-non-business{z-index:1}.fc .fc-timegrid-col-bg .fc-bg-event{z-index:2}.fc .fc-timegrid-col-bg .fc-highlight{z-index:3}.fc .fc-timegrid-bg-harness{left:0;position:absolute;right:0}.fc .fc-timegrid-col-events{z-index:3}.fc .fc-timegrid-now-indicator-container{bottom:0;overflow:hidden}.fc-direction-ltr .fc-timegrid-col-events{margin:0 2.5% 0 2px}.fc-direction-rtl .fc-timegrid-col-events{margin:0 2px 0 2.5%}.fc-timegrid-event-harness{position:absolute}.fc-timegrid-event-harness>.fc-timegrid-event{bottom:0;left:0;position:absolute;right:0;top:0}.fc-timegrid-event-harness-inset .fc-timegrid-event,.fc-timegrid-event.fc-event-mirror,.fc-timegrid-more-link{box-shadow:0 0 0 1px var(--fc-page-bg-color)}.fc-timegrid-event,.fc-timegrid-more-link{border-radius:3px;font-size:var(--fc-small-font-size)}.fc-timegrid-event{margin-bottom:1px}.fc-timegrid-event .fc-event-main{padding:1px 1px 0}.fc-timegrid-event .fc-event-time{font-size:var(--fc-small-font-size);margin-bottom:1px;white-space:nowrap}.fc-timegrid-event-short .fc-event-main-frame{flex-direction:row;overflow:hidden}.fc-timegrid-event-short .fc-event-time:after{content:"\00a0-\00a0"}.fc-timegrid-event-short .fc-event-title{font-size:var(--fc-small-font-size)}.fc-timegrid-more-link{background:var(--fc-more-link-bg-color);color:var(--fc-more-link-text-color);cursor:pointer;margin-bottom:1px;position:absolute;z-index:9999}.fc-timegrid-more-link-inner{padding:3px 2px;top:0}.fc-direction-ltr .fc-timegrid-more-link{right:0}.fc-direction-rtl .fc-timegrid-more-link{left:0}.fc .fc-timegrid-now-indicator-line{border-color:var(--fc-now-indicator-color);border-style:solid;border-width:1px 0 0;left:0;position:absolute;right:0;z-index:4}.fc .fc-timegrid-now-indicator-arrow{border-color:var(--fc-now-indicator-color);border-style:solid;margin-top:-5px;position:absolute;z-index:4}.fc-direction-ltr .fc-timegrid-now-indicator-arrow{border-bottom-color:transparent;border-top-color:transparent;border-width:5px 0 5px 6px;left:0}.fc-direction-rtl .fc-timegrid-now-indicator-arrow{border-bottom-color:transparent;border-top-color:transparent;border-width:5px 6px 5px 0;right:0}</style><style>:root{--fc-list-event-dot-width:10px;--fc-list-event-hover-bg-color:#f5f5f5}.fc-theme-standard .fc-list{border:1px solid var(--fc-border-color)}.fc .fc-list-empty{align-items:center;background-color:var(--fc-neutral-bg-color);display:flex;height:100%;justify-content:center}.fc .fc-list-empty-cushion{margin:5em 0}.fc .fc-list-table{border-style:hidden;width:100%}.fc .fc-list-table tr>*{border-left:0;border-right:0}.fc .fc-list-sticky .fc-list-day>*{background:var(--fc-page-bg-color);position:sticky;top:0}.fc .fc-list-table thead{left:-10000px;position:absolute}.fc .fc-list-table tbody>tr:first-child th{border-top:0}.fc .fc-list-table th{padding:0}.fc .fc-list-day-cushion,.fc .fc-list-table td{padding:8px 14px}.fc .fc-list-day-cushion:after{clear:both;content:"";display:table}.fc-theme-standard .fc-list-day-cushion{background-color:var(--fc-neutral-bg-color)}.fc-direction-ltr .fc-list-day-text,.fc-direction-rtl .fc-list-day-side-text{float:left}.fc-direction-ltr .fc-list-day-side-text,.fc-direction-rtl .fc-list-day-text{float:right}.fc-direction-ltr .fc-list-table .fc-list-event-graphic{padding-right:0}.fc-direction-rtl .fc-list-table .fc-list-event-graphic{padding-left:0}.fc .fc-list-event.fc-event-forced-url{cursor:pointer}.fc .fc-list-event:hover td{background-color:var(--fc-list-event-hover-bg-color)}.fc .fc-list-event-graphic,.fc .fc-list-event-time{white-space:nowrap;width:1px}.fc .fc-list-event-dot{border:calc(var(--fc-list-event-dot-width)/2) solid var(--fc-event-border-color);border-radius:calc(var(--fc-list-event-dot-width)/2);box-sizing:content-box;display:inline-block;height:0;width:0}.fc .fc-list-event-title a{color:inherit;text-decoration:none}.fc .fc-list-event.fc-event-forced-url:hover a{text-decoration:underline}</style><style>.fc .fc-multimonth{border:1px solid var(--fc-border-color);display:flex;flex-wrap:wrap;overflow-x:hidden;overflow-y:auto}.fc .fc-multimonth-title{font-size:1.2em;font-weight:700;padding:1em 0;text-align:center}.fc .fc-multimonth-daygrid{background:var(--fc-page-bg-color)}.fc .fc-multimonth-daygrid-table,.fc .fc-multimonth-header-table{table-layout:fixed;width:100%}.fc .fc-multimonth-daygrid-table{border-top-style:hidden!important}.fc .fc-multimonth-singlecol .fc-multimonth{position:relative}.fc .fc-multimonth-singlecol .fc-multimonth-header{background:var(--fc-page-bg-color);position:relative;top:0;z-index:2}.fc .fc-multimonth-singlecol .fc-multimonth-daygrid{position:relative;z-index:1}.fc .fc-multimonth-singlecol .fc-multimonth-daygrid-table,.fc .fc-multimonth-singlecol .fc-multimonth-header-table{border-left-style:hidden;border-right-style:hidden}.fc .fc-multimonth-singlecol .fc-multimonth-month:last-child .fc-multimonth-daygrid-table{border-bottom-style:hidden}.fc .fc-multimonth-multicol{line-height:1}.fc .fc-multimonth-multicol .fc-multimonth-month{padding:0 1.2em 1.2em}.fc .fc-multimonth-multicol .fc-daygrid-more-link{border:1px solid var(--fc-event-border-color);display:block;float:none;padding:1px}.fc .fc-multimonth-compact{line-height:1}.fc .fc-multimonth-compact .fc-multimonth-daygrid-table,.fc .fc-multimonth-compact .fc-multimonth-header-table{font-size:.9em}.fc-media-screen .fc-multimonth-singlecol .fc-multimonth-header{position:sticky}.fc-media-print .fc-multimonth{overflow:visible}</style><!-- END fullcalendar styles --><link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Icons css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+</head>
+
+<body>
+
+    <div class="flex wrapper">
+
+        <!-- Sidenav Menu -->
+        <div class="app-menu">
+
+            <!-- Sidenav Brand Logo -->
+            <a href="index.html" class="logo-box">
+                <!-- Light Brand Logo -->
+                <div class="logo-light">
+                    <img src="assets/images/logo-light.png" class="logo-lg h-6" alt="Light logo">
+                    <img src="assets/images/logo-sm.png" class="logo-sm" alt="Small logo">
+                </div>
+
+                <!-- Dark Brand Logo -->
+                <div class="logo-dark">
+                    <img src="assets/images/logo-dark.png" class="logo-lg h-6" alt="Dark logo">
+                    <img src="assets/images/logo-sm.png" class="logo-sm" alt="Small logo">
+                </div>
+            </a>
+
+            <!-- Sidenav Menu Toggle Button -->
+            <button id="button-hover-toggle" class="absolute top-5 end-2 rounded-full p-1.5">
+                <span class="sr-only">Menu Toggle Button</span>
+                <i class="mgc_round_line text-xl"></i>
+            </button>
+
+            <!--- Menu -->
+            <div class="srcollbar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
+                <ul class="menu" data-fc-type="accordion">
+                    <li class="menu-title">Menu</li>
+
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <span class="menu-icon"><i class="mgc_home_3_line"></i></span>
+                            <span class="menu-text"> Dashboard </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-title">Apps</li>
+
+                    <li class="menu-item">
+                        <a href="apps-calendar.html" class="menu-link active">
+                            <span class="menu-icon"><i class="mgc_calendar_line"></i></span>
+                            <span class="menu-text"> Calendar </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="apps-tickets.html" class="menu-link">
+                            <span class="menu-icon"><i class="mgc_coupon_line"></i></span>
+                            <span class="menu-text"> Tickets </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="apps-file-manager.html" class="menu-link">
+                            <span class="menu-icon"><i class="mgc_folder_2_line"></i></span>
+                            <span class="menu-text"> File Manager </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="apps-kanban.html" class="menu-link">
+                            <span class="menu-icon"><i class="mgc_task_2_line"></i></span>
+                            <span class="menu-text">Kanban</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_building_2_line"></i></span>
+                            <span class="menu-text"> Project </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="apps-project-list.html" class="menu-link">
+                                    <span class="menu-text">List</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="apps-project-detail.html" class="menu-link">
+                                    <span class="menu-text">Detail</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="apps-project-create.html" class="menu-link">
+                                    <span class="menu-text">Create</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-title">Custom</li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_user_3_line"></i></span>
+                            <span class="menu-text"> Auth Pages </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="auth-login.html" class="menu-link">
+                                    <span class="menu-text">Log In</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="auth-register.html" class="menu-link">
+                                    <span class="menu-text">Register</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="auth-recoverpw.html" class="menu-link">
+                                    <span class="menu-text">Recover Password</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="auth-lock-screen.html" class="menu-link">
+                                    <span class="menu-text">Lock Screen</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_box_3_line"></i></span>
+                            <span class="menu-text"> Extra Pages </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="pages-starter.html" class="menu-link">
+                                    <span class="menu-text">Starter</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-timeline.html" class="menu-link">
+                                    <span class="menu-text">Timeline</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-invoice.html" class="menu-link">
+                                    <span class="menu-text">Invoice</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-gallery.html" class="menu-link">
+                                    <span class="menu-text">Gallery</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-faqs.html" class="menu-link">
+                                    <span class="menu-text">FAQs</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-pricing.html" class="menu-link">
+                                    <span class="menu-text">Pricing</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-maintenance.html" class="menu-link">
+                                    <span class="menu-text">Maintenance</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-coming-soon.html" class="menu-link">
+                                    <span class="menu-text">Coming Soon</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-404.html" class="menu-link">
+                                    <span class="menu-text">Error 404</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-404-alt.html" class="menu-link">
+                                    <span class="menu-text">Error 404-alt</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="pages-500.html" class="menu-link">
+                                    <span class="menu-text">Error 500</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_layout_line"></i></span>
+                            <span class="menu-text"> Layout </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="layout-hover-view.html" target="_blank" class="menu-link">
+                                    <span class="menu-text">Hovered Menu</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="layout-icon-view.html" target="_blank" class="menu-link">
+                                    <span class="menu-text">Icon View Menu</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="layout-compact-view.html" target="_blank" class="menu-link">
+                                    <span class="menu-text">Compact Menu</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="layout-mobile-view.html" target="_blank" class="menu-link">
+                                    <span class="menu-text">Mobile View Menu</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="layout-hidden.html" target="_blank" class="menu-link">
+                                    <span class="menu-text">Hidden Menu</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-title">Elements</li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_classify_2_line"></i></span>
+                            <span class="menu-text"> Components </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="ui-accordions.html" class="menu-link">
+                                    <span class="menu-text">Accordions</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-alerts.html" class="menu-link">
+                                    <span class="menu-text">Alerts</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-avatars.html" class="menu-link">
+                                    <span class="menu-text">Avatars</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-buttons.html" class="menu-link">
+                                    <span class="menu-text">Buttons</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-badges.html" class="menu-link">
+                                    <span class="menu-text">Badges</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-breadcrumbs.html" class="menu-link">
+                                    <span class="menu-text">Breadcrumb</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-cards.html" class="menu-link">
+                                    <span class="menu-text">Cards</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-collapse.html" class="menu-link">
+                                    <span class="menu-text">Collapse</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-dismissible.html" class="menu-link">
+                                    <span class="menu-text">Dismissible</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-dropdowns.html" class="menu-link">
+                                    <span class="menu-text">Dropdowns</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-progress.html" class="menu-link">
+                                    <span class="menu-text">Progress</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-skeleton.html" class="menu-link">
+                                    <span class="menu-text">Skeleton</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-spinners.html" class="menu-link">
+                                    <span class="menu-text">Spinners</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-list-group.html" class="menu-link">
+                                    <span class="menu-text">List Group</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-ratio.html" class="menu-link">
+                                    <span class="menu-text">Ratio</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-tabs.html" class="menu-link">
+                                    <span class="menu-text">Tab</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-modals.html" class="menu-link">
+                                    <span class="menu-text">Modals</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-offcanvas.html" class="menu-link">
+                                    <span class="menu-text">Offcanvas</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-popovers.html" class="menu-link">
+                                    <span class="menu-text">Popovers</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-tooltips.html" class="menu-link">
+                                    <span class="menu-text">Tooltips</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="ui-typography.html" class="menu-link">
+                                    <span class="menu-text">Typography</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_box_3_line"></i></span>
+                            <span class="menu-text"> Extended </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="extended-swiper.html" class="menu-link">
+                                    <span class="menu-text">Swiper</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-nestable.html" class="menu-link">
+                                    <span class="menu-text">Nestable List</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-ratings.html" class="menu-link">
+                                    <span class="menu-text">Ratings</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-animation.html" class="menu-link">
+                                    <span class="menu-text">Animation</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-player.html" class="menu-link">
+                                    <span class="menu-text">Player</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-scrollbar.html" class="menu-link">
+                                    <span class="menu-text">Scrollbar</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-sweet-alert.html" class="menu-link">
+                                    <span class="menu-text">Sweet Alert</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-tour.html" class="menu-link">
+                                    <span class="menu-text">Tour Page</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-tippy-tooltips.html" class="menu-link">
+                                    <span class="menu-text">Tippy Tooltip</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="extended-lightbox.html" class="menu-link">
+                                    <span class="menu-text">Lightbox</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_file_check_line"></i></span>
+                            <span class="menu-text"> Forms </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="forms-elements.html" class="menu-link">
+                                    <span class="menu-text">Form Elements</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-select.html" class="menu-link">
+                                    <span class="menu-text">Select</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-range.html" class="menu-link">
+                                    <span class="menu-text">Range</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-pickers.html" class="menu-link">
+                                    <span class="menu-text">Pickers</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-masks.html" class="menu-link">
+                                    <span class="menu-text">Masks</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-editor.html" class="menu-link">
+                                    <span class="menu-text">Editor</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-file-uploads.html" class="menu-link">
+                                    <span class="menu-text">File Uploads</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-validation.html" class="menu-link">
+                                    <span class="menu-text">Validation</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="forms-layout.html" class="menu-link">
+                                    <span class="menu-text">Form Layout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_layout_grid_line"></i></span>
+                            <span class="menu-text"> Tables </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="tables-basic.html" class="menu-link">
+                                    <span class="menu-text">Basic Tables</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="tables-datatables.html" class="menu-link">
+                                    <span class="menu-text">Data Tables</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_dribbble_line"></i></span>
+                            <span class="menu-text"> Icons </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="icons-mingcute.html" class="menu-link">
+                                    <span class="menu-text">Mingcute</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="icons-feather.html" class="menu-link">
+                                    <span class="menu-text">Feather</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="icons-material-symbols.html" class="menu-link">
+                                    <span class="menu-text">Material Symbols </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="charts.html" class="menu-link">
+                            <span class="menu-icon"><i class="mgc_chart_bar_line"></i></span>
+                            <span class="menu-text"> Chart </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_location_line"></i></span>
+                            <span class="menu-text"> Maps </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="maps-vector.html" class="menu-link">
+                                    <span class="menu-text">Vector Maps</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="maps-google.html" class="menu-link">
+                                    <span class="menu-text">Google Maps</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-title">Documentation</li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link fc-collapse">
+                            <span class="menu-icon"><i class="mgc_document_line"></i></span>
+                            <span class="menu-text"> Documentation </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="sub-menu hidden">
+                            <li class="menu-item">
+                                <a href="docs-introduction.html" class="menu-link">
+                                    <span class="menu-text">Introduction</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="docs-installation.html" class="menu-link">
+                                    <span class="menu-text">Installation</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="docs-customization.html" class="menu-link">
+                                    <span class="menu-text">Customization</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="docs-changelog.html" class="menu-link">
+                                    <span class="menu-text">Changelog</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Help Box Widget -->
+                <div class="my-10 mx-5">
+                    <div class="help-box p-6 bg-black/5 text-center rounded-md">
+                        <div class="flex justify-center mb-4">
+                            <svg width="30" height="18" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 0c-4 0-6.5 2-7.5 6 1.5-2 3.25-2.75 5.25-2.25 1.141.285 1.957 1.113 2.86 2.03C17.08 7.271 18.782 9 22.5 9c4 0 6.5-2 7.5-6-1.5 2-3.25 2.75-5.25 2.25-1.141-.285-1.957-1.113-2.86-2.03C20.42 1.728 18.718 0 15 0ZM7.5 9C3.5 9 1 11 0 15c1.5-2 3.25-2.75 5.25-2.25 1.141.285 1.957 1.113 2.86 2.03C9.58 16.271 11.282 18 15 18c4 0 6.5-2 7.5-6-1.5 2-3.25 2.75-5.25 2.25-1.141-.285-1.957-1.113-2.86-2.03C12.92 10.729 11.218 9 7.5 9Z" fill="#38BDF8"></path>
+                            </svg>
+                        </div>
+                        <h5 class="mb-2">Unlimited Access</h5>
+                        <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
+                        <a href="javascript: void(0);" class="btn btn-sm bg-secondary text-white">Upgrade</a>
+                    </div>
+                </div>
+            </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 1281px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 218px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
+        </div>
+        <!-- Sidenav Menu End  -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="page-content">
+
+            <!-- Topbar Start -->
+            <header class="app-header flex items-center px-4 gap-3">
+                <!-- Sidenav Menu Toggle Button -->
+                <button id="button-toggle-menu" class="nav-link p-2">
+                    <span class="sr-only">Menu Toggle Button</span>
+                    <span class="flex items-center justify-center h-6 w-6">
+                        <i class="mgc_menu_line text-xl"></i>
+                    </span>
+                </button>
+
+                <!-- Topbar Brand Logo -->
+                <a href="index.html" class="logo-box">
+                    <!-- Light Brand Logo -->
+                    <div class="logo-light">
+                        <img src="assets/images/logo-light.png" class="logo-lg h-6" alt="Light logo">
+                        <img src="assets/images/logo-sm.png" class="logo-sm" alt="Small logo">
+                    </div>
+
+                    <!-- Dark Brand Logo -->
+                    <div class="logo-dark">
+                        <img src="assets/images/logo-dark.png" class="logo-lg h-6" alt="Dark logo">
+                        <img src="assets/images/logo-sm.png" class="logo-sm" alt="Small logo">
+                    </div>
+                </a>
+
+                <!-- Topbar Search Modal Button -->
+                <button type="button" data-fc-type="modal" data-fc-target="topbar-search-modal" class="nav-link p-2 me-auto">
+                    <span class="sr-only">Search</span>
+                    <span class="flex items-center justify-center h-6 w-6">
+                        <i class="mgc_search_line text-2xl"></i>
+                    </span>
+                </button>
+
+                <!-- Language Dropdown Button -->
+                <div class="relative">
+                    <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button" class="nav-link p-2 fc-dropdown">
+                        <span class="flex items-center justify-center h-6 w-6">
+                            <img src="assets/images/flags/us.jpg" alt="user-image" class="h-4 w-6">
+                        </span>
+                    </button>
+                    <div class="fc-dropdown fc-dropdown-open:opacity-100 hidden opacity-0 w-40 z-50 mt-2 transition-[margin,opacity] duration-300 bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 rounded-lg p-2">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                            <img src="assets/images/flags/germany.jpg" alt="user-image" class="h-4">
+                            <span class="align-middle">German</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                            <img src="assets/images/flags/italy.jpg" alt="user-image" class="h-4">
+                            <span class="align-middle">Italian</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                            <img src="assets/images/flags/spain.jpg" alt="user-image" class="h-4">
+                            <span class="align-middle">Spanish</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                            <img src="assets/images/flags/russia.jpg" alt="user-image" class="h-4">
+                            <span class="align-middle">Russian</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fullscreen Toggle Button -->
+                <div class="md:flex hidden">
+                    <button data-toggle="fullscreen" type="button" class="nav-link p-2">
+                        <span class="sr-only">Fullscreen Mode</span>
+                        <span class="flex items-center justify-center h-6 w-6">
+                            <i class="mgc_fullscreen_line text-2xl"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Notification Bell Button -->
+                <div class="relative md:flex hidden">
+                    <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button" class="nav-link p-2 fc-dropdown">
+                        <span class="sr-only">View notifications</span>
+                        <span class="flex items-center justify-center h-6 w-6">
+                            <i class="mgc_notification_line text-2xl"></i>
+                        </span>
+                    </button>
+                    <div class="fc-dropdown fc-dropdown-open:opacity-100 hidden opacity-0 w-80 z-50 mt-2 transition-[margin,opacity] duration-300 bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 rounded-lg">
+
+                        <div class="p-2 border-b border-dashed border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <h6 class="text-sm"> Notification</h6>
+                                <a href="javascript: void(0);" class="text-gray-500 underline">
+                                    <small>Clear All</small>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="p-4 h-80" data-simplebar="init"><div class="simplebar-wrapper" style="margin: -16px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 16px;">
+
+                            <h5 class="text-xs text-gray-500 mb-2">Today</h5>
+
+                            <a href="javascript:void(0);" class="block mb-4">
+                                <div class="card-body">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex justify-center items-center h-9 w-9 rounded-full bg text-white bg-primary">
+                                                <i class="mgc_message_3_line text-lg"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow truncate ms-2">
+                                            <h5 class="text-sm font-semibold mb-1">Datacorp <small class="font-normal text-gray-500 ms-1">1 min ago</small></h5>
+                                            <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="javascript:void(0);" class="block mb-4">
+                                <div class="card-body">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex justify-center items-center h-9 w-9 rounded-full bg-info text-white">
+                                                <i class="mgc_user_add_line text-lg"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow truncate ms-2">
+                                            <h5 class="text-sm font-semibold mb-1">Admin <small class="font-normal text-gray-500 ms-1">1 hr ago</small></h5>
+                                            <small class="noti-item-subtitle text-muted">New user registered</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="javascript:void(0);" class="block mb-4">
+                                <div class="card-body">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img src="assets/images/users/avatar-2.jpg" class="rounded-full h-9 w-9" alt="">
+                                        </div>
+                                        <div class="flex-grow truncate ms-2">
+                                            <h5 class="text-sm font-semibold mb-1">Cristina Pride <small class="font-normal text-gray-500 ms-1">1 day ago</small></h5>
+                                            <small class="noti-item-subtitle text-muted">Hi, How are you? What about our next meeting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <h5 class="text-xs text-gray-500 mb-2">Yesterday</h5>
+
+                            <a href="javascript:void(0);" class="block mb-4">
+                                <div class="card-body">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex justify-center items-center h-9 w-9 rounded-full bg-primary text-white">
+                                                <i class="mgc_message_1_line text-lg"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow truncate ms-2">
+                                            <h5 class="text-sm font-semibold mb-1">Datacorp</h5>
+                                            <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="javascript:void(0);" class="block">
+                                <div class="card-body">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img src="assets/images/users/avatar-4.jpg" class="rounded-full h-9 w-9" alt="">
+                                        </div>
+                                        <div class="flex-grow truncate ms-2">
+                                            <h5 class="text-sm font-semibold mb-1">Karen Robinson</h5>
+                                            <small class="noti-item-subtitle text-muted">Wow ! this admin looks good and awesome design</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+
+                        <a href="javascript:void(0);" class="p-2 border-t border-dashed border-gray-200 dark:border-gray-700 block text-center text-primary underline font-semibold">
+                            View All
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Light/Dark Toggle Button -->
+                <div class="flex">
+                    <button id="light-dark-mode" type="button" class="nav-link p-2">
+                        <span class="sr-only">Light/Dark Mode</span>
+                        <span class="flex items-center justify-center h-6 w-6">
+                            <i class="mgc_moon_line text-2xl"></i>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Profile Dropdown Button -->
+                <div class="relative">
+                    <button data-fc-type="dropdown" data-fc-placement="bottom-end" type="button" class="nav-link fc-dropdown">
+                        <img src="assets/images/users/user-6.jpg" alt="user-image" class="rounded-full h-10">
+                    </button>
+                    <div class="fc-dropdown fc-dropdown-open:opacity-100 hidden opacity-0 w-44 z-50 transition-[margin,opacity] duration-300 mt-2 bg-white shadow-lg border rounded-lg p-2 border-gray-200 dark:border-gray-700 dark:bg-gray-800">
+                        <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="pages-gallery.html">
+                            <i class="mgc_pic_2_line  me-2"></i> 
+                            <span>Gallery</span>
+                        </a>
+                        <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="apps-kanban.html">
+                            <i class="mgc_task_2_line  me-2"></i> 
+                            <span>Kanban</span>
+                        </a>
+                        <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="auth-login.html">
+                            <i class="mgc_lock_line  me-2"></i> 
+                            <span>Lock Screen</span>
+                        </a>
+                        <hr class="my-2 -mx-2 border-gray-200 dark:border-gray-700">
+                        <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="auth-login.html">
+                            <i class="mgc_exit_line  me-2"></i> 
+                            <span>Log Out</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <!-- Topbar End -->
+
+            <!-- Topbar Search Modal -->
+            <div>
+                <div id="topbar-search-modal" class="fc-modal hidden w-full h-full fixed top-0 start-0 z-50">
+                    <div class="fc-modal-open:opacity-100 fc-modal-open:duration-500 opacity-0 transition-all sm:max-w-lg sm:w-full m-12 sm:mx-auto">
+                        <div class="mx-auto max-w-2xl overflow-hidden rounded-xl bg-white shadow-2xl transition-all dark:bg-slate-800">
+                            <div class="relative">
+                                <div class="pointer-events-none absolute top-3.5 start-4 text-gray-900 text-opacity-40 dark:text-gray-200">
+                                    <i class="mgc_search_line text-xl"></i>
+                                </div>
+                                <input type="search" class="h-12 w-full border-0 bg-transparent ps-11 pe-4 text-gray-900 placeholder-gray-500 dark:placeholder-gray-300 dark:text-gray-200 focus:ring-0 sm:text-sm" placeholder="Search...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <main class="flex-grow p-6">
+
+                <!-- Page Title Start -->
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-slate-900 dark:text-slate-200 text-lg font-medium">Calendar</h4>
+
+                    <div class="md:flex hidden items-center gap-2.5 text-sm font-semibold">
+                        <div class="flex items-center gap-2">
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">Konrix</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">Apps</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400" aria-current="page">Calendar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+
+                <div class="grid lg:grid-cols-4 gap-6">
+                    <div class="card">
+                        <div class="p-6">
+                            <button class="px-3 py-2 rounded bg-primary text-white text-base w-full mb-4" id="btn-new-event"><i class="mgc_add_line"></i> Create New Event</button>
+
+                            <div class="flex flex-col gap-1" id="external-events">
+                                <p class="text-sm text-slate-700 dark:text-slate-400 mb-4">Drag and drop your event or click in the calendar</p>
+                                <button class="external-event bg-success px-3 py-2 rounded text-white text-base text-start w-full mb-2" data-class="bg-success">
+                                    <i class="mgc_round_fill me-3 vertical-middle"></i>New Theme Release
+                                </button>
+                                <button class="external-event bg-info px-3 py-2 rounded text-white text-base text-start w-full mb-2" data-class="bg-info">
+                                    <i class="mgc_round_fill me-3 vertical-middle"></i>My Event
+                                </button>
+                                <button class="external-event bg-warning px-3 py-2 rounded text-white text-base text-start w-full mb-2" data-class="bg-warning">
+                                    <i class="mgc_round_fill me-3 vertical-middle"></i>Meet manager
+                                </button>
+                                <button class="external-event bg-danger px-3 py-2 rounded text-white text-base text-start w-full mb-2" data-class="bg-danger">
+                                    <i class="mgc_round_fill me-3 vertical-middle"></i>Create New theme
+                                </button>
+                            </div>
+
+                            <div class="mt-5">
+                                <h5 class="text-center mb-2">How It Works ?</h5>
+
+                                <ul class="ps-3">
+                                    <li class="text-sm text-slate-700 dark:text-slate-400 mb-3">
+                                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                    </li>
+                                    <li class="text-sm text-slate-700 dark:text-slate-400 mb-3">
+                                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.
+                                    </li>
+                                    <li class="text-sm text-slate-700 dark:text-slate-400 mb-3">
+                                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-3">
+                        <div class="card">
+                            <div class="p-6">
+                                <div id="calendar" class="fc fc-media-screen fc-direction-ltr fc-theme-standard" style="height: 300px;"><div class="fc-header-toolbar fc-toolbar fc-toolbar-ltr"><div class="fc-toolbar-chunk"><div class="fc-button-group"><button type="button" title="Previous Month" aria-pressed="false" class="fc-prev-button fc-button fc-button-primary">Prev</button><button type="button" title="Next Month" aria-pressed="false" class="fc-next-button fc-button fc-button-primary">Next</button></div><button type="button" title="This Month" disabled="" aria-pressed="false" class="fc-today-button fc-button fc-button-primary">Today</button></div><div class="fc-toolbar-chunk"><h2 class="fc-toolbar-title" id="fc-dom-1">March 2025</h2></div><div class="fc-toolbar-chunk"><div class="fc-button-group"><button type="button" title="Month view" aria-pressed="true" class="fc-dayGridMonth-button fc-button fc-button-primary fc-button-active">Month</button><button type="button" title="Week view" aria-pressed="false" class="fc-timeGridWeek-button fc-button fc-button-primary">Week</button><button type="button" title="Day view" aria-pressed="false" class="fc-timeGridDay-button fc-button fc-button-primary">Day</button><button type="button" title="List view" aria-pressed="false" class="fc-listMonth-button fc-button fc-button-primary">List</button></div></div></div><div aria-labelledby="fc-dom-1" class="fc-view-harness fc-view-harness-active"><div class="fc-dayGridMonth-view fc-view fc-daygrid"><table role="grid" class="fc-scrollgrid  fc-scrollgrid-liquid"><thead role="rowgroup"><tr role="presentation" class="fc-scrollgrid-section fc-scrollgrid-section-header "><th role="presentation"><div class="fc-scroller-harness"><div class="fc-scroller" style="overflow: hidden scroll;"><table role="presentation" class="fc-col-header " style="width: 701px;"><colgroup></colgroup><thead role="presentation"><tr role="row"><th role="columnheader" class="fc-col-header-cell fc-day fc-day-sun"><div class="fc-scrollgrid-sync-inner"><a aria-label="Sunday" class="fc-col-header-cell-cushion">Sun</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-mon"><div class="fc-scrollgrid-sync-inner"><a aria-label="Monday" class="fc-col-header-cell-cushion">Mon</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-tue"><div class="fc-scrollgrid-sync-inner"><a aria-label="Tuesday" class="fc-col-header-cell-cushion">Tue</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-wed"><div class="fc-scrollgrid-sync-inner"><a aria-label="Wednesday" class="fc-col-header-cell-cushion">Wed</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-thu"><div class="fc-scrollgrid-sync-inner"><a aria-label="Thursday" class="fc-col-header-cell-cushion">Thu</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-fri"><div class="fc-scrollgrid-sync-inner"><a aria-label="Friday" class="fc-col-header-cell-cushion">Fri</a></div></th><th role="columnheader" class="fc-col-header-cell fc-day fc-day-sat"><div class="fc-scrollgrid-sync-inner"><a aria-label="Saturday" class="fc-col-header-cell-cushion">Sat</a></div></th></tr></thead></table></div></div></th></tr></thead><tbody role="rowgroup"><tr role="presentation" class="fc-scrollgrid-section fc-scrollgrid-section-body  fc-scrollgrid-section-liquid"><td role="presentation"><div class="fc-scroller-harness fc-scroller-harness-liquid"><div class="fc-scroller fc-scroller-liquid-absolute" style="overflow: hidden scroll;"><div class="fc-daygrid-body fc-daygrid-body-unbalanced " style="width: 701px;"><table role="presentation" class="fc-scrollgrid-sync-table" style="width: 701px; height: 183px;"><colgroup></colgroup><tbody role="presentation"><tr role="row"><td aria-labelledby="fc-dom-2" role="gridcell" data-date="2025-02-23" class="fc-day fc-day-sun fc-day-past fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="February 23, 2025" id="fc-dom-2" class="fc-daygrid-day-number">23</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-4" role="gridcell" data-date="2025-02-24" class="fc-day fc-day-mon fc-day-past fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="February 24, 2025" id="fc-dom-4" class="fc-daygrid-day-number">24</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-6" role="gridcell" data-date="2025-02-25" class="fc-day fc-day-tue fc-day-past fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="February 25, 2025" id="fc-dom-6" class="fc-daygrid-day-number">25</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-8" role="gridcell" data-date="2025-02-26" class="fc-day fc-day-wed fc-day-past fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="February 26, 2025" id="fc-dom-8" class="fc-daygrid-day-number">26</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-10" role="gridcell" data-date="2025-02-27" class="fc-day fc-day-thu fc-day-past fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="February 27, 2025" id="fc-dom-10" class="fc-daygrid-day-number">27</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-12" role="gridcell" data-date="2025-02-28" class="fc-day fc-day-fri fc-day-past fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="February 28, 2025" id="fc-dom-12" class="fc-daygrid-day-number">28</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-14" role="gridcell" data-date="2025-03-01" class="fc-day fc-day-sat fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 1, 2025" id="fc-dom-14" class="fc-daygrid-day-number">1</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td></tr><tr role="row"><td aria-labelledby="fc-dom-16" role="gridcell" data-date="2025-03-02" class="fc-day fc-day-sun fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 2, 2025" id="fc-dom-16" class="fc-daygrid-day-number">2</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-18" role="gridcell" data-date="2025-03-03" class="fc-day fc-day-mon fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 3, 2025" id="fc-dom-18" class="fc-daygrid-day-number">3</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-20" role="gridcell" data-date="2025-03-04" class="fc-day fc-day-tue fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 4, 2025" id="fc-dom-20" class="fc-daygrid-day-number">4</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-22" role="gridcell" data-date="2025-03-05" class="fc-day fc-day-wed fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 5, 2025" id="fc-dom-22" class="fc-daygrid-day-number">5</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-24" role="gridcell" data-date="2025-03-06" class="fc-day fc-day-thu fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 6, 2025" id="fc-dom-24" class="fc-daygrid-day-number">6</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-26" role="gridcell" data-date="2025-03-07" class="fc-day fc-day-fri fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 7, 2025" id="fc-dom-26" class="fc-daygrid-day-number">7</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-28" role="gridcell" data-date="2025-03-08" class="fc-day fc-day-sat fc-day-past fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 8, 2025" id="fc-dom-28" class="fc-daygrid-day-number">8</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td></tr><tr role="row"><td aria-labelledby="fc-dom-30" role="gridcell" data-date="2025-03-09" class="fc-day fc-day-sun fc-day-today fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 9, 2025" id="fc-dom-30" class="fc-daygrid-day-number">9</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-event-harness" style="margin-top: 0px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-today bg-primary fc-daygrid-event fc-daygrid-dot-event"><div class="fc-daygrid-event-dot"></div><div class="fc-event-time">7:16a</div><div class="fc-event-title">Interview - Backend Engineer</div></a></div><div class="fc-daygrid-event-harness" style="margin-top: 0px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-today bg-warning fc-daygrid-event fc-daygrid-dot-event"><div class="fc-daygrid-event-dot"></div><div class="fc-event-time">10:53a</div><div class="fc-event-title">Meeting with CT Team</div></a></div><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-32" role="gridcell" data-date="2025-03-10" class="fc-day fc-day-mon fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 10, 2025" id="fc-dom-32" class="fc-daygrid-day-number">10</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-event-harness fc-daygrid-event-harness-abs" style="top: 0px; left: 0px; right: -100.141px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future bg-secondary fc-daygrid-event fc-daygrid-block-event fc-h-event"><div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-time">12:06a</div><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Interview - Frontend Engineer</div></div></div></div></a></div><div class="fc-daygrid-day-bottom" style="margin-top: 38px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-34" role="gridcell" data-date="2025-03-11" class="fc-day fc-day-tue fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 11, 2025" id="fc-dom-34" class="fc-daygrid-day-number">11</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-event-harness" style="margin-top: 38px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-future bg-success fc-daygrid-event fc-daygrid-dot-event"><div class="fc-daygrid-event-dot"></div><div class="fc-event-time">5:56a</div><div class="fc-event-title">Phone Screen - Frontend Engineer</div></a></div><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-36" role="gridcell" data-date="2025-03-12" class="fc-day fc-day-wed fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 12, 2025" id="fc-dom-36" class="fc-daygrid-day-number">12</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-event-harness fc-daygrid-event-harness-abs" style="top: 0px; left: 0px; right: -100.141px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future bg-info fc-daygrid-event fc-daygrid-block-event fc-h-event"><div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-time">8:50p</div><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Meeting with Mr. Shield</div></div></div></div></a></div><div class="fc-daygrid-day-bottom" style="margin-top: 38px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-38" role="gridcell" data-date="2025-03-13" class="fc-day fc-day-thu fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 13, 2025" id="fc-dom-38" class="fc-daygrid-day-number">13</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-event-harness" style="margin-top: 38px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-future bg-primary fc-daygrid-event fc-daygrid-dot-event"><div class="fc-daygrid-event-dot"></div><div class="fc-event-time">2:56a</div><div class="fc-event-title">Buy Design Assets</div></a></div><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-40" role="gridcell" data-date="2025-03-14" class="fc-day fc-day-fri fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 14, 2025" id="fc-dom-40" class="fc-daygrid-day-number">14</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-42" role="gridcell" data-date="2025-03-15" class="fc-day fc-day-sat fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 15, 2025" id="fc-dom-42" class="fc-daygrid-day-number">15</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td></tr><tr role="row"><td aria-labelledby="fc-dom-44" role="gridcell" data-date="2025-03-16" class="fc-day fc-day-sun fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 16, 2025" id="fc-dom-44" class="fc-daygrid-day-number">16</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-46" role="gridcell" data-date="2025-03-17" class="fc-day fc-day-mon fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 17, 2025" id="fc-dom-46" class="fc-daygrid-day-number">17</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-48" role="gridcell" data-date="2025-03-18" class="fc-day fc-day-tue fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 18, 2025" id="fc-dom-48" class="fc-daygrid-day-number">18</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-50" role="gridcell" data-date="2025-03-19" class="fc-day fc-day-wed fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 19, 2025" id="fc-dom-50" class="fc-daygrid-day-number">19</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-52" role="gridcell" data-date="2025-03-20" class="fc-day fc-day-thu fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 20, 2025" id="fc-dom-52" class="fc-daygrid-day-number">20</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-event-harness fc-daygrid-event-harness-abs" style="top: 0px; left: 0px; right: -200.797px;"><a tabindex="0" class="fc-event fc-event-draggable fc-event-start fc-event-end fc-event-future bg-danger fc-daygrid-event fc-daygrid-block-event fc-h-event"><div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-time">11:16p</div><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Setup Github Repository</div></div></div></div></a></div><div class="fc-daygrid-day-bottom" style="margin-top: 38px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-54" role="gridcell" data-date="2025-03-21" class="fc-day fc-day-fri fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 21, 2025" id="fc-dom-54" class="fc-daygrid-day-number">21</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 38px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-56" role="gridcell" data-date="2025-03-22" class="fc-day fc-day-sat fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 22, 2025" id="fc-dom-56" class="fc-daygrid-day-number">22</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 38px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td></tr><tr role="row"><td aria-labelledby="fc-dom-58" role="gridcell" data-date="2025-03-23" class="fc-day fc-day-sun fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 23, 2025" id="fc-dom-58" class="fc-daygrid-day-number">23</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-60" role="gridcell" data-date="2025-03-24" class="fc-day fc-day-mon fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 24, 2025" id="fc-dom-60" class="fc-daygrid-day-number">24</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-62" role="gridcell" data-date="2025-03-25" class="fc-day fc-day-tue fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 25, 2025" id="fc-dom-62" class="fc-daygrid-day-number">25</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-64" role="gridcell" data-date="2025-03-26" class="fc-day fc-day-wed fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 26, 2025" id="fc-dom-64" class="fc-daygrid-day-number">26</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-66" role="gridcell" data-date="2025-03-27" class="fc-day fc-day-thu fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 27, 2025" id="fc-dom-66" class="fc-daygrid-day-number">27</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-68" role="gridcell" data-date="2025-03-28" class="fc-day fc-day-fri fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 28, 2025" id="fc-dom-68" class="fc-daygrid-day-number">28</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-70" role="gridcell" data-date="2025-03-29" class="fc-day fc-day-sat fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 29, 2025" id="fc-dom-70" class="fc-daygrid-day-number">29</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td></tr><tr role="row"><td aria-labelledby="fc-dom-72" role="gridcell" data-date="2025-03-30" class="fc-day fc-day-sun fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 30, 2025" id="fc-dom-72" class="fc-daygrid-day-number">30</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-74" role="gridcell" data-date="2025-03-31" class="fc-day fc-day-mon fc-day-future fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="March 31, 2025" id="fc-dom-74" class="fc-daygrid-day-number">31</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-76" role="gridcell" data-date="2025-04-01" class="fc-day fc-day-tue fc-day-future fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="April 1, 2025" id="fc-dom-76" class="fc-daygrid-day-number">1</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-78" role="gridcell" data-date="2025-04-02" class="fc-day fc-day-wed fc-day-future fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="April 2, 2025" id="fc-dom-78" class="fc-daygrid-day-number">2</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-80" role="gridcell" data-date="2025-04-03" class="fc-day fc-day-thu fc-day-future fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="April 3, 2025" id="fc-dom-80" class="fc-daygrid-day-number">3</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-82" role="gridcell" data-date="2025-04-04" class="fc-day fc-day-fri fc-day-future fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="April 4, 2025" id="fc-dom-82" class="fc-daygrid-day-number">4</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td><td aria-labelledby="fc-dom-84" role="gridcell" data-date="2025-04-05" class="fc-day fc-day-sat fc-day-future fc-day-other fc-daygrid-day"><div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner"><div class="fc-daygrid-day-top"><a aria-label="April 5, 2025" id="fc-dom-84" class="fc-daygrid-day-number">5</a></div><div class="fc-daygrid-day-events"><div class="fc-daygrid-day-bottom" style="margin-top: 0px;"></div></div><div class="fc-daygrid-day-bg"></div></div></td></tr></tbody></table></div></div></div></td></tr></tbody></table></div></div></div>
+                            </div>
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer Start -->
+            <footer class="footer h-16 flex items-center px-6 bg-white shadow dark:bg-gray-800">
+                <div class="flex justify-center w-full gap-4">
+                    <div>
+                        <script>document.write(new Date().getFullYear())</script>2025 © Konrix - <a href="../../index.html" target="_blank">Coderthemes</a>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer End -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+
+    <!-- Back to Top Button -->
+    <button data-toggle="back-to-top" class="fixed h-10 w-10 items-center justify-center rounded-full z-10 bottom-20 end-14 p-2.5 bg-primary cursor-pointer shadow-lg text-white flex">
+        <i class="mgc_arrow_up_line text-lg"></i>
+    </button>
+
+    <!-- Theme Settings -->
+    <div>
+        <!-- Theme Setting Button -->
+        <div class="fixed end-0 bottom-20">
+            <button data-fc-type="offcanvas" data-fc-target="theme-customization" type="button" class="bg-white rounded-s-full shadow-lg p-2.5 ps-3 transition-all dark:bg-slate-800">
+                <span class="sr-only">Setting</span>
+                <span class="flex items-center justify-center animate-spin">
+                    <i class="mgc_settings_4_line text-2xl"></i>
+                </span>
+            </button>
+        </div>
+    
+        <!-- Theme Settings Offcanvas -->
+        <div id="theme-customization" class="fc-offcanvas-open:translate-x-0 hidden translate-x-full rtl:-translate-x-full fixed inset-y-0 end-0 transition-all duration-300 transform max-w-sm w-full z-50 bg-white border-s border-gray-900/10 dark:bg-gray-800 dark:border-white/10 fc-offcanvas" tabindex="-1">
+            <div class="h-16 flex items-center text-gray-800 dark:text-white border-b border-dashed border-gray-900/10 dark:border-white/10 px-6 gap-3">
+                <h5 class="text-base grow">Theme Settings</h5>
+                <button type="button" class="p-2" id="reset-layout"><i class="mgc_refresh_1_line text-xl"></i></button>
+                <button type="button" data-fc-dismiss=""><i class="mgc_close_line text-xl"></i></button>
+            </div>
+    
+            <div class="h-[calc(100vh-64px)]" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+                <div class="divide-y divide-dashed divide-slate-900/10  dark:divide-white/10">
+                    <div class="p-6">
+                        <h5 class="font-semibold text-sm mb-3">Theme</h5>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-mode" id="layout-color-light" value="light">
+                                <label class="form-label rounded-md" for="layout-color-light">
+                                    <span class="flex items-center justify-center px-4 py-3">
+                                        <i class="mgc_sun_line text-2xl"></i>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Light </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-mode" id="layout-color-dark" value="dark">
+                                <label class="form-label rounded-md" for="layout-color-dark">
+                                    <span class="flex items-center justify-center px-4 py-3">
+                                        <i class="mgc_moon_line text-2xl"></i>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Dark </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="p-6">
+                        <h5 class="font-semibold text-sm mb-3">Direction</h5>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="dir" id="direction-ltr" value="ltr">
+                                <label class="form-label rounded-md" for="direction-ltr">
+                                    <span class="flex items-center justify-center px-4 py-3">
+                                        <i class="mgc_align_left_line text-2xl"></i>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> LTR </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="dir" id="direction-rtl" value="rtl">
+                                <label class="form-label rounded-md" for="direction-rtl">
+                                    <span class="flex items-center justify-center px-4 py-3">
+                                        <i class="mgc_align_right_line text-2xl"></i>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> RTL </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="p-6 2xl:block hidden">
+                        <h5 class="font-semibold text-sm mb-3">Content Width</h5>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-layout-width" id="layout-mode-default" value="default">
+                                <label class="form-label rounded-md" for="layout-mode-default">
+                                    <span class="flex items-center justify-center px-4 py-3">
+                                        <i class="mgc_fullscreen_2_line text-2xl rotate-45"></i>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Fluid </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-layout-width" id="layout-mode-boxed" value="boxed">
+                                <label class="form-label rounded-md" for="layout-mode-boxed">
+                                    <span class="flex items-center justify-center px-4 py-3">
+                                        <i class="mgc_fullscreen_exit_2_line text-2xl rotate-45"></i>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Boxed </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="p-6">
+                        <h5 class="font-semibold text-sm mb-3">Sidenav View</h5>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-default" value="default">
+                                <label class="form-label rounded-md" for="sidenav-view-default">
+                                    <span class="flex h-16 overflow-hidden">
+                                        <span class="block w-8 bg-gray-100 dark:bg-gray-800">
+                                            <span class="mt-1.5 mx-1.5 block space-y-1">
+                                                <span class="h-1 block rounded-sm mb-2.5 bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex flex-col flex-auto border-s border-gray-200 dark:border-gray-700">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex items-center justify-end h-full mr-1.5">
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Default </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-hover" value="hover">
+                                <label class="form-label rounded-md" for="sidenav-view-hover">
+                                    <span class="flex h-16 overflow-hidden">
+                                        <span class="w-3 bg-gray-100 dark:bg-gray-800">
+                                            <span class="w-1.5 h-1.5 mt-1 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                            <span class="flex flex-col items-center w-full mt-1.5 space-y-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex flex-col flex-auto border-s border-gray-200 dark:border-gray-700">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex items-center justify-end h-full mr-1.5">
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Hover </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-hover-active" value="hover-active">
+                                <label class="form-label rounded-md" for="sidenav-view-hover-active">
+                                    <span class="flex h-16 overflow-hidden">
+                                        <span class="w-8 bg-gray-100 dark:bg-gray-800">
+                                            <span class="mt-1.5 mx-1.5 block space-y-1">
+                                                <span class="flex mb-2.5 gap-1">
+                                                    <span class="h-1 block w-full rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="h-1 block w-2 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="h-1 block rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex flex-col flex-auto border-s border-gray-200 dark:border-gray-700">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex items-center justify-end h-full mr-1.5">
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Hover Active </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-sm" value="sm">
+                                <label class="form-label rounded-md" for="sidenav-view-sm">
+                                    <span class="flex h-16 overflow-hidden">
+                                        <span class="w-3 bg-gray-100 dark:bg-gray-800">
+                                            <span class="w-1.5 h-1.5 mt-1 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                            <span class="flex flex-col items-center w-full mt-1.5 space-y-1">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex flex-col flex-auto border-s border-gray-200 dark:border-gray-700">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex items-center h-full mr-1.5">
+                                                    <span class="grow">
+                                                        <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    </span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Small </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-md" value="md">
+                                <label class="form-label rounded-md" for="sidenav-view-md">
+                                    <span class="flex h-16 rounded-md overflow-hidden">
+                                        <span class="w-4 bg-gray-100 dark:bg-gray-800">
+                                            <span class="w-2 h-2 mt-2 mx-auto rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                            <span class="flex flex-col items-center w-full mt-2 space-y-1">
+                                                <span class="w-2 h-2 rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-2 h-2 rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                <span class="w-2 h-2 rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                            </span>
+                                        </span>
+                                        <span class="flex flex-col flex-auto border-s border-gray-200 dark:border-gray-700">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex items-center h-full mr-1.5">
+                                                    <span class="grow">
+                                                        <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    </span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ml-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Compact </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-mobile" value="mobile">
+                                <label class="form-label rounded-md" for="sidenav-view-mobile">
+                                    <span class="flex h-16 overflow-hidden">
+                                        <span class="flex flex-col flex-auto">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex items-center h-full mr-1.5">
+                                                    <span class="w-1.5 h-1.5  ms-1 rounded-sm bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1  rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-auto rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Mobile </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-sidenav-view" id="sidenav-view-hidden" value="hidden">
+                                <label class="form-label rounded-md" for="sidenav-view-hidden">
+                                    <span class="flex h-16 overflow-hidden">
+                                        <span class="flex flex-col flex-auto">
+                                            <span class="h-3 bg-gray-100 dark:bg-gray-800">
+                                                <span class="flex flex-auto items-center h-full me-1.5">
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-auto rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                    <span class="w-1 h-1 block ms-1 rounded-full bg-gray-300 dark:bg-gray-700"></span>
+                                                </span>
+                                            </span>
+                                            <span class="flex flex-auto border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Hidden </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="p-6">
+                        <h5 class="font-semibold text-sm mb-3">Menu Color</h5>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-menu-color" id="menu-color-light" value="light">
+                                <label class="form-label rounded-md" for="menu-color-light">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full bg-white"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Light </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-menu-color" id="menu-color-dark" value="dark">
+                                <label class="form-label rounded-md" for="menu-color-dark">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full bg-dark"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Dark </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-menu-color" id="menu-color-brand" value="brand">
+                                <label class="form-label rounded-md" for="menu-color-brand">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full bg-primary"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Brand </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-menu-color" id="menu-color-gradient" value="gradient">
+                                <label class="form-label rounded-md" for="menu-color-gradient">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full" style="background: linear-gradient(135deg, #6379c3 0%, #546ee5 60%);"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Gradient </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="p-6">
+                        <h5 class="font-semibold text-sm mb-3">Topbar Color</h5>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-topbar-color" id="topbar-color-light" value="light">
+                                <label class="form-label rounded-md" for="topbar-color-light">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full bg-white"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Light </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-topbar-color" id="topbar-color-dark" value="dark">
+                                <label class="form-label rounded-md" for="topbar-color-dark">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full bg-dark"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Dark </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-topbar-color" id="topbar-color-brand" value="brand">
+                                <label class="form-label rounded-md" for="topbar-color-brand">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full bg-primary"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Brand </div>
+                            </div>
+    
+                            <div class="card-radio">
+                                <input class="form-radio" type="radio" name="data-topbar-color" id="topbar-color-gradient" value="gradient">
+                                <label class="form-label rounded-md" for="topbar-color-gradient">
+                                    <span class="flex items-center justify-center px-4 py-3 bg-gray-100 dark:bg-gray-900">
+                                        <span class="w-5 h-5 shadow-lg rounded-full" style="background: linear-gradient(135deg, #6379c3 0%, #546ee5 60%);"></span>
+                                    </span>
+                                </label>
+                                <div class="mt-1 text-md font-medium text-center text-gray-600 dark:text-gray-300"> Gradient </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="p-6">
+                        <h5 class="font-semibold text-sm mb-3">Layout Position</h5>
+                        <div class="flex btn-radio">
+                            <input type="radio" class="form-radio hidden" name="data-layout-position" id="layout-position-fixed" value="fixed">
+                            <label class="btn rounded-e-none bg-gray-100 dark:bg-gray-700" for="layout-position-fixed">Fixed</label>
+                            <input type="radio" class="form-radio hidden" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
+                            <label class="btn rounded-s-none bg-gray-100 dark:bg-gray-700" for="layout-position-scrollable">Scrollable</label>
+                        </div>
+                    </div>
+                </div>
+            </div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+        </div>
+    </div>
+
+    <!-- Plugin Js -->
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/libs/%40frostui/tailwindcss/frostui.js"></script><div class="transition-all fixed inset-0 z-40 bg-gray-900 bg-opacity-50 dark:bg-opacity-80 hidden" data-fc-overlay-backdrop=""></div>
+
+    <!-- App Js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Fullcalendar Plugin Js -->
+    <script src="assets/libs/fullcalendar/index.global.min.js"></script>
+
+    <!-- Calendar Js -->
+    <script src="assets/js/pages/apps-calendar.js"></script>
+
+
+
+</body></html>
